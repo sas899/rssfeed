@@ -212,20 +212,19 @@ fetch(RSS_URL)
         <div class="akrss-container">`;
 
         res.querySelectorAll("item").forEach( el => {
-            console.log(el.querySelector('pubDate').textContent);
             html += `
                 <div class="list-card  akrss-card" style="height: 155px; border-radius: 5px; border: 1px solid rgb(230, 230, 230); background-color: rgb(255, 255, 255); margin-bottom: 10px; overflow: hidden;">
                     <div class="list-card-content ">
                         <div class="list-card-body" style="height: 100%; border-radius: 5px; display: flex; flex-direction: row;">
                             <div class="akrsscard-img" style="border-radius: 0px; min-width: 125px; width: 250px; max-width: 250px; flex: 1 1 0%;">
+                            <a href="${el.querySelector('link').innerHTML}" target="_blank" rel="noopener noreferrer">
                             ${
                                 el.querySelector('image').innerHTML ?
-                                `<a href="${el.querySelector('link').innerHTML}" target="_blank" rel="noopener noreferrer">
-                                    <img referrerpolicy="no-referrer" src="${el.querySelector('image').innerHTML}">
-                                </a>`
+                                `<img referrerpolicy="no-referrer" src="${el.querySelector('image').innerHTML}">`
                                 :
-                                ''
+                                '<img referrerpolicy="no-referrer" src="https://www.shareandstocks.com/wp-content/uploads/2020/11/stocks-trading.jpg">'
                             }
+                            </a>
                             </div>
                             <style>
                                 .akrsscard-img {
