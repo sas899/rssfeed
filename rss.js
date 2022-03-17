@@ -8,27 +8,32 @@ if ( urlParam.has('categories') ) {
     $queryString = '?categories=' + urlParam.get('categories')
 }
 
-// function ddiff(date1, date2, interval) {
-//     var second=1000, minute=second*60, hour=minute*60, day=hour*24, week=day*7;
-//     date1 = new Date(date1);
-//     date2 = new Date(date2);
-//     var timediff = date2 - date1;
-//     if (isNaN(timediff)) return NaN;
-//     switch (interval) {
-//         case "years": return date2.getFullYear() - date1.getFullYear();
-//         case "months": return (
-//             ( date2.getFullYear() * 12 + date2.getMonth() )
-//             -
-//             ( date1.getFullYear() * 12 + date1.getMonth() )
-//         );
-//         case "weeks"  : return Math.floor(timediff / week);
-//         case "days"   : return Math.floor(timediff / day); 
-//         case "hours"  : return Math.floor(timediff / hour); 
-//         case "minutes": return Math.floor(timediff / minute);
-//         case "seconds": return Math.floor(timediff / second);
-//         default: return undefined;
-//     }
-// }
+function timeSince(date) {
+  var seconds = Math.floor((new Date() - date) / 1000);
+
+  var interval = seconds / 31536000;
+
+  if (interval > 1) {
+    return Math.floor(interval) + " years ago";
+  }
+  interval = seconds / 2592000;
+  if (interval > 1) {
+    return Math.floor(interval) + " months ago";
+  }
+  interval = seconds / 86400;
+  if (interval > 1) {
+    return Math.floor(interval) + " days ago";
+  }
+  interval = seconds / 3600;
+  if (interval > 1) {
+    return Math.floor(interval) + " hours ago";
+  }
+  interval = seconds / 60;
+  if (interval > 1) {
+    return Math.floor(interval) + " minutes ago";
+  }
+  return Math.floor(seconds) + " seconds ago";
+}
 
 function datediff(first, second) {
     // Take the difference between the dates and divide by milliseconds per day.
@@ -241,7 +246,10 @@ fetch(RSS_URL)
                                 }
                             </style>
                             <div class="list-card-summary" style="flex: 2 1 0%; display: flex; flex-direction: column;">
-                                <div class="akrsscard-footer" style="display: flex; align-items: center; font-size: 12px; line-height: 26.4px; color: rgb(116, 116, 116); height: 30px;"><span style="margin: 0px 9px; color: rgb(116, 116, 116); font-size: 8px;">●</span><span class="card-time" style="line-height: inherit; white-space: nowrap;">${datediff(new Date(el.querySelector('pubDate').textContent), new Date(), 'days')} days</span>
+                                <div class="akrsscard-footer" style="display: flex; align-items: center; font-size: 12px; line-height: 26.4px; color: rgb(116, 116, 116); height: 30px;"><span style="width: 5px;height: 5px;background: grey;border-radius: 50%;margin-right: 5px;"></span><span class="card-time" style="line-height: inherit; white-space: nowrap;">${timeSince(
+                                  new Date(
+                                    el.querySelector("pubDate").textContent
+                                  ))}</span>
                                 </div>
                                 <div style="display: flex; flex-direction: column; flex: 2 1 0%;">
                                     <h3 class="list-card-title" style="line-height: 24px; font-size: 18px; -webkit-line-clamp: 2;"><a href="${el.querySelector('link').innerHTML}" target="_blank" rel="noopener noreferrer" style="color: rgb(18, 19, 20); font-size: 18px; line-height: 24px; -webkit-line-clamp: 2;">${el.querySelector('title').innerHTML}</a></h3>
