@@ -248,7 +248,7 @@ fetch(RSS_URL)
                             <div class="list-card-summary" style="flex: 2 1 0%; display: flex; flex-direction: column;">
                                 <div class="akrsscard-footer" style="display: flex; align-items: center; font-size: 12px; line-height: 26.4px; color: rgb(116, 116, 116); height: 30px;"><span style="width: 5px;height: 5px;background: grey;border-radius: 50%;margin-right: 5px;"></span><span class="card-time" style="line-height: inherit; white-space: nowrap;">${timeSince(
                                   new Date(
-                                    el.querySelector("pubDate").textContent.replace(' +0000')
+                                    el.querySelector("pubDate").textContent.replace(' +0000', '')
                                   ))}</span>
                                 </div>
                                 <div style="display: flex; flex-direction: column; flex: 2 1 0%;">
