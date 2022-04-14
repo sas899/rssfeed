@@ -309,8 +309,8 @@ function fetchFeed(searchTerm = '') {
                                     .akrsscard-img img {
                                         display: block;
                                         width: 100%;
-                                        height: 100%;
-                                        object-fit: cover;
+                                        height: 100% !important;
+                                        object-fit: cover !important;
                                     }
                                 </style>
                                 <div class="list-card-summary" style="flex: 2 1 0%; display: flex; flex-direction: column;">
