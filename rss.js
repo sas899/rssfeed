@@ -147,7 +147,6 @@ function fetchFeed(searchTerm = '') {
                     overflow: hidden;
                     text-overflow: ellipsis;
                     display: -webkit-box;
-                    -webkit-line-clamp: 2;
                     -webkit-box-orient: vertical;
                 }
                 .list-card h3.twitter {
@@ -325,7 +324,7 @@ function fetchFeed(searchTerm = '') {
                                       ))}</span>
                                     </div>
                                     <div style="display: flex; flex-direction: column; flex: 2 1 0%;">
-                                        <h3 class="list-card-title" style="line-height: 24px; font-size: 18px; -webkit-line-clamp: 2;"><a href="${el.querySelector('link').innerHTML}" target="_blank" rel="noopener noreferrer" style="color: rgb(18, 19, 20); font-size: 18px; line-height: 24px; -webkit-line-clamp: 2;">${el.querySelector('title').innerHTML}</a></h3>
+                                        <h3 class="list-card-title" style="line-height: 24px; font-size: 18px;"><a href="${el.querySelector('link').innerHTML}" target="_blank" rel="noopener noreferrer" style="color: rgb(18, 19, 20); font-size: 18px; line-height: 24px;">${el.querySelector('title').innerHTML}</a></h3>
                                         <div class="list-card-description" style="line-height: 20px; font-size: 14px; color: rgb(106, 106, 117); -webkit-line-clamp: 3;">${el.querySelector('description').innerHTML}</div>
                                     </div>
                                 </div>
