@@ -27,6 +27,11 @@ if ( urlParam.has('search') ) {
     }
 }
 
+var defaultImg = 'https://www.shareandstocks.com/wp-content/uploads/2020/11/stocks-trading.jpg';
+if ( urlParam.has('image') ) {
+    defaultImg = urlParam.get('image')
+}
+
 function timeSince(date) {
   var seconds = Math.floor((new Date() - date) / 1000);
 
@@ -295,7 +300,7 @@ function fetchFeed(searchTerm = '') {
                                     el.querySelector('image').innerHTML ?
                                     `<img referrerpolicy="no-referrer" src="${el.querySelector('image').innerHTML}">`
                                     :
-                                    '<img referrerpolicy="no-referrer" src="https://www.shareandstocks.com/wp-content/uploads/2020/11/stocks-trading.jpg">'
+                                    `<img referrerpolicy="no-referrer" src="${defaultImg}">`
                                 }
                                 </a>
                                 </div>
