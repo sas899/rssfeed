@@ -33,7 +33,9 @@ if ( urlParam.has('image') ) {
 }
 
 function timeSince(date) {
-  var seconds = Math.floor((new Date() - date) / 1000);
+  var seconds = Math.floor(((new Date()).getTime() - date.getTime()) / 1000);
+  console.log(seconds)
+  console.log(new Date() - date)
 
   var interval = seconds / 31536000;
 
@@ -318,10 +320,15 @@ function fetchFeed(searchTerm = '') {
                                     }
                                 </style>
                                 <div class="list-card-summary" style="flex: 2 1 0%; display: flex; flex-direction: column;">
-                                    <div class="akrsscard-footer" style="display: flex; align-items: center; font-size: 12px; line-height: 26.4px; color: rgb(116, 116, 116); height: 30px;"><span style="width: 5px;height: 5px;background: grey;border-radius: 50%;margin-right: 5px;"></span><span class="card-time" style="line-height: inherit; white-space: nowrap;">${timeSince(
-                                      new Date(
-                                        el.querySelector("pubDate").textContent.replace(' +0000', '')
-                                      ))}</span>
+                                    <div class="akrsscard-footer" style="display: flex; align-items: center; font-size: 12px; line-height: 26.4px; color: rgb(116, 116, 116); height: 30px;"><span style="width: 5px;height: 5px;background: grey;border-radius: 50%;margin-right: 5px;"></span><span class="card-time" style="line-height: inherit; white-space: nowrap;">
+                                    ${
+                                        // timeSince(
+                                        //   new Date(
+                                        //     el.querySelector("pubDate").textContent.replace(' +0000', '')
+                                        //   ))
+                                         el.querySelector("pubDate").textContent
+                                    }
+                                    </span>
                                     </div>
                                     <div style="display: flex; flex-direction: column; flex: 2 1 0%;">
                                         <h3 class="list-card-title" style="line-height: 24px; font-size: 18px;"><a href="${el.querySelector('link').innerHTML}" target="_blank" rel="noopener noreferrer" style="color: rgb(18, 19, 20); font-size: 18px; line-height: 24px;">${el.querySelector('title').innerHTML}</a></h3>
@@ -354,3 +361,4 @@ searchButton.addEventListener('click', (e) => {
 });
 
 fetchFeed()
+
