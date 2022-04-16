@@ -297,7 +297,7 @@ function fetchFeed(searchTerm = '') {
     
             res.querySelectorAll("item").forEach( el => {
                 html += `
-                    <div class="list-card  akrss-card" style="height: 155px; border-radius: 5px; border: 1px solid rgb(230, 230, 230); background-color: rgb(255, 255, 255); margin-bottom: 10px; overflow: hidden;">
+                    <div class="list-card  akrss-card" style="border-radius: 5px; border: 1px solid rgb(230, 230, 230); background-color: rgb(255, 255, 255); margin-bottom: 10px; overflow: hidden;">
                         <div class="list-card-content ">
                             <div class="list-card-body" style="height: 100%; border-radius: 5px; display: flex; flex-direction: row;">
                                 <div class="akrsscard-img" style="border-radius: 0px; min-width: 125px; width: 250px; max-width: 250px; flex: 1 1 0%;">
