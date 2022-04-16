@@ -284,6 +284,11 @@ function fetchFeed(searchTerm = '') {
                     font-size: 14px;
                     cursor: pointer;
                 }
+                @media only screen and (max-width: 767px) {
+                    .list-card h3 a, .list-card-title {
+                        font-size: 15px;
+                    }
+                }
             </style>
             <div class="akrss-search-placeholder"></div>
             <div class="akrss-container">
@@ -331,7 +336,7 @@ function fetchFeed(searchTerm = '') {
                                     </span>
                                     </div>
                                     <div style="display: flex; flex-direction: column; flex: 2 1 0%;">
-                                        <h3 class="list-card-title" style="line-height: 24px; font-size: 18px;"><a href="${el.querySelector('link').innerHTML}" target="_blank" rel="noopener noreferrer" style="color: rgb(18, 19, 20); font-size: 18px; line-height: 24px;">${el.querySelector('title').innerHTML}</a></h3>
+                                        <h3 class="list-card-title" style="line-height: 24px;"><a href="${el.querySelector('link').innerHTML}" target="_blank" rel="noopener noreferrer" style="color: rgb(18, 19, 20);line-height: 24px;">${el.querySelector('title').innerHTML}</a></h3>
                                         <div class="list-card-description" style="line-height: 20px; font-size: 14px; color: rgb(106, 106, 117); -webkit-line-clamp: 3;">${el.querySelector('description').innerHTML}</div>
                                     </div>
                                 </div>
