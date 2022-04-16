@@ -314,13 +314,15 @@ function fetchFeed(searchTerm = '') {
                                     .akrsscard-img {
                                         width: 100%;
                                         overflow: hidden;
-                                        background: #dddddd;
+                                        background: #fff;
+                                        display: flex;
+                                        align-items: center;
                                     }
     
                                     .akrsscard-img img {
                                         display: block;
                                         width: 100%;
-                                        height: 100% !important;
+                                        height: 150px !important;
                                         object-fit: cover !important;
                                     }
                                 </style>
